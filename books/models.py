@@ -1,5 +1,5 @@
 from django.db import models
-from django.shortcuts import reverse
+from django.urls import reverse
 
 
 class Book(models.Model):
@@ -8,8 +8,8 @@ class Book(models.Model):
         ('drf', 'Draft'),
     )
     BOOK_LANGUAGE = (
-        ('lge', 'persian'),
-        ('lge', 'english'),
+        ('persian', 'persian'),
+        ('english', 'english'),
     )
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
@@ -24,3 +24,5 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('book_detail', args=[self.id])
