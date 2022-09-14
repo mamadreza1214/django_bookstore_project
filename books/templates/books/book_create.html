@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% block page_title %}ویرایش کتاب {{ book.title }} {% endblock page_title %}
+
+
+{% block content %}
+
+    {{ book.title }}
+    <p>{{ book.author }}</p>
+    <p>{{ book.description }}</p>
+    <p>{{ book.price }}</p>
+    <p>{{ book.translator }}</p>
+    <p>{{ book.publisher }}</p>
+    <p>{{ book.year_of_publication }}</p>
+    <p>{{ book.number_of_pages }}</p>
+    <p>{{ book.language }}</p>
+    <br>
+    <button type="submit" class="btn btn-success">ایجاد کتاب</button>
+    <br><br>
+    <a href="{% url 'book_list' %}">لیست کتاب ها</a>
+
+{% endblock content %}
